@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1599946675737.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1752776578",
+    "id" : "99072EE3",
+    "lastKnownWriteTime" : 1599946965,
+    "last_content_update" : 1599946965255,
+    "path" : "D:/Fall 2020/StatComputing/Project/StatCompProj/1C_Code/read_data.R",
+    "project_path" : "1C_Code/read_data.R",
+    "properties" : {
+        "cursorPosition" : "16,2",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
