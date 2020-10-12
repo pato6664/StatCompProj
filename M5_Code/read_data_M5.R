@@ -46,10 +46,4 @@ data_dir <- list.files('D:/Fall 2020/StatComputing/Project/M5_Competition/Accura
 ####################################################################################################################################
 ####################################################################################################################################
 
-calendar <- read_csv(data_dir[1])
-
-sell_prices <- read_csv(data_dir[5])
-
-sales_train <- read_csv(data_dir[2])
-
-sales_train
+sales_train <- data_dir[2]

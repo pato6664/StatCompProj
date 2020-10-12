@@ -44,3 +44,20 @@ sales_train %>%
 
 
 # Plot time series for randomly selected shops and items 
+
+sales_train %>% 
+  distinct(shop_id) %>% 
+  sample_n(6,replace = F) -> shop_id_df
+
+sales_train %>% 
+  distinct(item_id) %>% 
+  sample_n(1) -> item_id_df 
+
+sales_train %>% 
+  group_by(shop_id) %>% 
+  filter(shop_id %in% shop_id_df$shop_id & item_id == item_id_df$item_id) -> ts_plot_df 
+
+ts_plot_df %>% 
+  ggplot(aes(x=date,y=item_cnt_day,color=shop_id)) + 
+  geom_line() + theme_minimal()+ facet_wrap(~shop_id,nrow = 3,ncol=2)
+
