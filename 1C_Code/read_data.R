@@ -1,9 +1,14 @@
-rm(list=ls())
-library(tidyverse)
-library(lubridate)
-data_dir <- list.files('D:/Fall 2020/StatComputing/Project/1c_competition',full.names = T)
+# File descriptions #
 
-# Fields
+# sales_train.csv - the training set. Daily historical data from January 2013 to October 2015.
+# test.csv - the test set. You need to forecast the sales for these shops and products for November 2015.
+# sample_submission.csv - a sample submission file in the correct format.
+# items.csv - supplemental information about the items/products.
+# item_categories.csv  - supplemental information about the items categories.
+# shops.csv- supplemental information about the shops.
+
+# Fields #
+
 # ID - an Id that represents a (Shop, Item) tuple within the test set
 # shop_id - unique identifier of a shop
 # item_id - unique identifier of a product
@@ -16,4 +21,26 @@ data_dir <- list.files('D:/Fall 2020/StatComputing/Project/1c_competition',full.
 # shop_name - name of shop
 # item_category_name - name of item category
 
-# Read in data files 
+# Read in data files
+
+
+rm(list=ls())
+library(tidyverse)
+library(lubridate)
+data_dir <- list.files('D:/Fall 2020/StatComputing/Project/1c_competition',full.names = T)
+
+sales_train <- read_csv("D:/Fall 2020/StatComputing/Project/1c_competition/sales_train.csv", 
+                        col_types = cols(date = col_datetime(format = "%d.%m.%Y")))
+# Basic EDA and Data Cleaning 
+
+sales_train %>% 
+  summarise('DistinctShops'= n_distinct(shop_id),
+            'DistinctItems'= n_distinct(item_id))
+
+sales_train %>% 
+  summarise('MinItemsSold'= min(item_cnt_day),
+            'MaxItemsSold'= max(item_cnt_day))
+
+
+
+# Plot time series for randomly selected shops and items 
